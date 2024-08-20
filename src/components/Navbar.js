@@ -6,13 +6,13 @@ export function Navbar() {
             </a>
         
             <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="inicio.html" className="nav-link px-2 link-white">INÍCIO</a></li>
-                <li><a href="sobre.html" className="nav-link px-2 link-white">SOBRE</a></li>
-                <li><a href="cursos.html" className="nav-link px-2 link-white">CURSOS</a></li>
-                <li><a href="docentes.html" className="nav-link px-2 link-white">DOCENTES</a></li>
+                <li><a href="/" className="nav-link px-2 link-white">INÍCIO</a></li>
+                <li><a href="sobre" className="nav-link px-2 link-white">SOBRE</a></li>
+                <li><a href="cursos" className="nav-link px-2 link-white">CURSOS</a></li>
+                <li><a href="docentes" className="nav-link px-2 link-white">DOCENTES</a></li>
                 <li><a href="forms/formulario-trabalhe-conosco.html" className="nav-link px-2 link-white">TRABALHE CONOSCO</a></li>
                 <li><a href="forms/formulario-contato.html" className="nav-link px-2 link-white">CONTATO</a></li>
-                <li><a href="aula.html" className="nav-link px-2 link-white">AULA</a></li>
+                <li><a href="aula" className="nav-link px-2 link-white">AULA</a></li>
             </ul>
 
             <div id="login" className="col-md-3 text-end">

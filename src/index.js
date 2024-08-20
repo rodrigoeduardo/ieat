@@ -1,36 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Inicio from './pages/inicio';
-import Docentes from './pages/docentes';
-import Aula from './pages/aula';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Inicio from "./pages/inicio";
+import Docentes from "./pages/docentes";
+import Aula from "./pages/aula";
+import { AuthContextProvider } from "./contexts/useAuthContext";
+import Login from "./pages/login";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
-        element: <Inicio />
+        path: "/",
+        element: <Inicio />,
       },
       {
-        path: '/docentes',
-        element: <Docentes />
+        path: "/login",
+        element: <Login />,
       },
       {
-        path: '/aula',
-        element: <Aula />
-      }
-    ]
-  }
-])
+        path: "/docentes",
+        element: <Docentes />,
+      },
+      {
+        path: "/aula",
+        element: <Aula />,
+      },
+    ],
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
   </React.StrictMode>
 );

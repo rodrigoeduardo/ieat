@@ -34,18 +34,12 @@ export function Navbar() {
           </a>
         </li>
         <li>
-          <a
-            href="formTrabalheConosco"
-            className="nav-link px-2 link-white"
-          >
+          <a href="formTrabalheConosco" className="nav-link px-2 link-white">
             TRABALHE CONOSCO
           </a>
         </li>
         <li>
-          <a
-            href="formularioContato"
-            className="nav-link px-2 link-white"
-          >
+          <a href="formularioContato" className="nav-link px-2 link-white">
             CONTATO
           </a>
         </li>
@@ -56,16 +50,7 @@ export function Navbar() {
         </li>
       </ul>
 
-      <div id="login" className="col-md-3 text-end">
-        <a type="button" className="btn btn-outline-primary me-2" href="login">
-          Login
-        </a>
-        <a type="button" className="btn btn-primary" href="formMatricula">
-          Registrar-se
-        </a>
-      </div>
-
-      {isLoggedIn && (
+      {isLoggedIn ? (
         <div id="loggedin">
           <p id="message"></p>
           <button type="button" className="btn btn-secondary" onClick={logout}>
@@ -78,6 +63,19 @@ export function Navbar() {
               height="24"
               alt="Carrinho de Compras"
             />
+          </a>
+        </div>
+      ) : (
+        <div id="login" className="col-md-3 text-end">
+          <a
+            type="button"
+            className="btn btn-outline-primary me-2"
+            href="login"
+          >
+            Login
+          </a>
+          <a type="button" className="btn btn-primary" href="formMatricula">
+            Registrar-se
           </a>
         </div>
       )}

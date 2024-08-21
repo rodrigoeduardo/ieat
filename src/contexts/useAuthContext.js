@@ -1,4 +1,7 @@
 import { createContext, useContext, useState } from "react";
+
+const key = "ieat@user";
+
 const USER_DEFAULT_VALUES = {
   id: undefined,
   email: undefined,
@@ -9,14 +12,19 @@ const USER_DEFAULT_VALUES = {
 const AuthContext = createContext({});
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState(USER_DEFAULT_VALUES);
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem(key)) ?? USER_DEFAULT_VALUES
+  );
 
   function login(id, email, name, type) {
-    setUser({ id, email, name, type });
+    const user = { id, email, name, type };
+    setUser(user);
+    sessionStorage.setItem(key, JSON.stringify({ id, email, name, type }));
   }
 
   function logout() {
     setUser(USER_DEFAULT_VALUES);
+    sessionStorage.removeItem(key);
   }
 
   return (

@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useAuthContext } from "../contexts/useAuthContext";
 
 const QuestionForm = ({ addComment }) => {
-  const [questionText, setQuestionText] = useState('');
+  const { user } = useAuthContext();
+  const [questionText, setQuestionText] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (questionText.trim()) {
-      addComment({ id_do_aluno: 0, comentario: questionText });
-      setQuestionText('');
+      addComment({ id_do_aluno: user.id, comentario: questionText });
+      setQuestionText("");
     }
   };
 
@@ -19,7 +21,9 @@ const QuestionForm = ({ addComment }) => {
         value={questionText}
         onChange={(e) => setQuestionText(e.target.value)}
       />
-      <button type="submit" className="btn btn-primary">Enviar Pergunta</button>
+      <button type="submit" className="btn btn-primary">
+        Enviar Pergunta
+      </button>
     </form>
   );
 };

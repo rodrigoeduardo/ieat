@@ -94,7 +94,7 @@ export default function Login() {
               Sair
             </button>
 
-            <a id="aulaLink" href="../aula.html" className="btn btn-primary">
+            <a id="aulaLink" href="aula" className="btn btn-primary">
               Ir para a aula
             </a>
           </div>

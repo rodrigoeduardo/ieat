@@ -1,21 +1,24 @@
-import './index.css'; 
+import { useNavigate } from "react-router-dom";
+import { addStudent } from "../../requests";
+import "./index.css";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const FormMatricula = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone1: '',
-    phone2: '',
-    cpf: '',
-    rg: '',
-    birthdate: '',
-    gender: '',
-    especial: '',
-    atendEspecial: '',
-    password: '',
-    confirmPassword: ''
+    nome: "",
+    email: "",
+    tel1: "",
+    tel2: "",
+    cpf: "",
+    rg: "",
+    dataNascimento: "",
+    genero: "",
+    ehEspecial: "",
+    requerAtendimentoEspecial: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -28,45 +31,60 @@ const FormMatricula = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica de envio do formulário
+
+    if (formData.password !== formData.confirmPassword) {
+      alert("Senhas não coincidem.");
+      return;
+    }
+
+    formData.confirmPassword = undefined;
+
+    addStudent(formData).then(() => navigate("/"));
+    alert("Cadastrado com sucesso.");
   };
 
   const handleReset = () => {
     setFormData({
-      name: '',
-      email: '',
-      phone1: '',
-      phone2: '',
-      cpf: '',
-      rg: '',
-      birthdate: '',
-      gender: '',
-      especial: '',
-      atendEspecial: '',
-      password: '',
-      confirmPassword: ''
+      nome: "",
+      email: "",
+      tel1: "",
+      tel2: "",
+      cpf: "",
+      rg: "",
+      dataNascimento: "",
+      genero: "",
+      ehEspecial: "",
+      requerAtendimentoEspecial: "",
+      password: "",
+      confirmPassword: "",
     });
   };
 
   return (
-    <form className='estilu' id="registerStudentForm" onSubmit={handleSubmit} onReset={handleReset}>
+    <form
+      className="estilu"
+      id="registerStudentForm"
+      onSubmit={handleSubmit}
+      onReset={handleReset}
+    >
       <br />
       <div className="work">
         <h2>Matricule-se</h2>
         <br />
-        <hr /><br />
+        <hr />
+        <br />
       </div>
       <div className="form-group">
         <h3>Dados Pessoais:</h3>
       </div>
       <div className="form-group">
-        <label htmlFor="name">Nome:*</label>
+        <label htmlFor="nome">Nome:*</label>
         <input
           type="text"
-          id="name"
-          name="name"
+          id="nome"
+          name="nome"
           placeholder="Seu nome"
-          value={formData.name}
+          value={formData.nome}
           onChange={handleChange}
           required
         />
@@ -87,11 +105,10 @@ const FormMatricula = () => {
         <label htmlFor="i-tel">Telefone 1:*</label>
         <input
           type="tel"
-          name="phone1"
-          pattern="[0-9]{2} [0-9]{5}-[0-9]{4}"
+          name="tel1"
           id="i-tel"
           placeholder="00 00000-0000"
-          value={formData.phone1}
+          value={formData.tel1}
           onChange={handleChange}
           required
         />
@@ -100,11 +117,10 @@ const FormMatricula = () => {
         <label htmlFor="i-tel">Telefone 2:</label>
         <input
           type="tel"
-          name="phone2"
-          pattern="[0-9]{2} [0-9]{5}-[0-9]{4}"
+          name="tel2"
           id="i-tel"
           placeholder="00 00000-0000"
-          value={formData.phone2}
+          value={formData.tel2}
           onChange={handleChange}
         />
       </div>
@@ -114,9 +130,7 @@ const FormMatricula = () => {
           type="text"
           id="cpf"
           name="cpf"
-          pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
           placeholder="000.000.000-00"
-          title="CPF deve estar no formato 000.000.000-00"
           value={formData.cpf}
           onChange={handleChange}
           required
@@ -138,23 +152,28 @@ const FormMatricula = () => {
         <label htmlFor="i-date">Qual a data do seu nascimento?</label>
         <input
           type="date"
-          name="birthdate"
+          name="dataNascimento"
           id="i-date"
           max="2021-11-03"
-          value={formData.birthdate}
+          value={formData.dataNascimento}
           onChange={handleChange}
+          required
         />
-        <br /><br />
+        <br />
+        <br />
       </div>
       <div className="form-group">
         <label htmlFor="Genero">Gênero:</label>
         <select
           id="Genero"
-          name="gender"
-          value={formData.gender}
+          name="genero"
+          value={formData.genero}
           onChange={handleChange}
+          required
         >
-          <option value="" disabled hidden>Selecione</option>
+          <option value="" disabled hidden>
+            Selecione
+          </option>
           <option value="Masculino">Masculino</option>
           <option value="Feminino">Feminino</option>
           <option value="Outro">Outro</option>
@@ -164,37 +183,41 @@ const FormMatricula = () => {
         <label>É portador de alguma necessidade especial?*</label>
         <input
           type="radio"
-          name="especial"
+          name="ehEspecial"
           value="especial"
-          checked={formData.especial === 'especial'}
+          checked={formData.ehEspecial === "especial"}
           onChange={handleChange}
           required
-        /> Sim
+        />{" "}
+        Sim
         <input
           type="radio"
-          name="especial"
+          name="ehEspecial"
           value="naoespecial"
-          checked={formData.especial === 'naoespecial'}
+          checked={formData.ehEspecial === "naoespecial"}
           onChange={handleChange}
-        /> Não
+        />{" "}
+        Não
       </div>
       <div className="form-group">
         <label>Requer atendimento especial?*</label>
         <input
           type="radio"
-          name="atendEspecial"
+          name="requerAtendimentoEspecial"
           value="requer"
-          checked={formData.atendEspecial === 'requer'}
+          checked={formData.requerAtendimentoEspecial === "requer"}
           onChange={handleChange}
           required
-        /> Sim
+        />{" "}
+        Sim
         <input
           type="radio"
-          name="atendEspecial"
+          name="requerAtendimentoEspecial"
           value="naorequer"
-          checked={formData.atendEspecial === 'naorequer'}
+          checked={formData.requerAtendimentoEspecial === "naorequer"}
           onChange={handleChange}
-        /> Não
+        />{" "}
+        Não
       </div>
       <div className="form-group">
         <label htmlFor="register-password">Senha:</label>
@@ -220,10 +243,20 @@ const FormMatricula = () => {
           required
         />
       </div>
-      <button className="benviar" type="submit">Enviar</button>
-      <button className="blimpar" type="reset">Limpar</button>
-      <hr /><br />
-      <p>Já tem uma conta? <a id="fazer_login" href="login">Fazer login</a></p>
+      <button className="benviar" type="submit">
+        Enviar
+      </button>
+      <button className="blimpar" type="reset">
+        Limpar
+      </button>
+      <hr />
+      <br />
+      <p>
+        Já tem uma conta?{" "}
+        <a id="fazer_login" href="login">
+          Fazer login
+        </a>
+      </p>
     </form>
   );
 };

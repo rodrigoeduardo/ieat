@@ -12,6 +12,14 @@ export async function getTeachers() {
   return Object.entries(teachers);
 }
 
+export async function addStudent(newUser) {
+  const res = await fetch(`${API_BASE_URL}/students.json`, {
+    method: "POST",
+    body: JSON.stringify(newUser),
+  });
+  return res;
+}
+
 export const fetchComments = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/comments.json`);

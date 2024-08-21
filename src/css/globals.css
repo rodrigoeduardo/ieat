@@ -215,11 +215,6 @@ th,td{
     margin-right: 4vw;
 }
 
-#loggedin {
-    display: none;
-    gap: 0.5rem;
-}
-
 @media (max-width: 768px) {
     footer{
         display: flex;

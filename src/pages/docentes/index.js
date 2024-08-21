@@ -1,3 +1,5 @@
+import './index.css'
+
 import { ProfCard } from "../../components/ProfCard";
 
 export default function Docentes() {

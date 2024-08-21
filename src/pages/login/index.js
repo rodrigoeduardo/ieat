@@ -3,7 +3,7 @@ import { getStudents, getTeachers } from "../../requests";
 import "./index.css";
 
 export default function Login() {
-  const { isLoggedIn, login, logout } = useAuthContext();
+  const { isLoggedIn, user, login, logout } = useAuthContext();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -44,46 +44,48 @@ export default function Login() {
   return (
     <>
       <div className="login-section">
-        <h2>Login</h2>
-        <form className="estilo" id="loginForm" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <br />
-            <label for="login-email">E-mail:</label>
-            <input
-              type="email"
-              id="login-email"
-              name="email"
-              placeholder="Seu e-mail"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label for="login-password">Senha:</label>
-            <input
-              type="password"
-              id="login-password"
-              name="password"
-              placeholder="Sua senha"
-              required
-            />
-          </div>
-          <button className="benviar" type="submit">
-            Enviar
-          </button>
-          <hr />
-          <br />
-          <p>
-            Não tem uma conta?{" "}
-            <a id="Registre-se" href="formMatricula">
-              Registre-se
-            </a>
-          </p>
-        </form>
-
-        {isLoggedIn && (
+        {!isLoggedIn ? (
+          <>
+            <h2>Login</h2>
+            <form className="estilo" id="loginForm" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <br />
+                <label for="login-email">E-mail:</label>
+                <input
+                  type="email"
+                  id="login-email"
+                  name="email"
+                  placeholder="Seu e-mail"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label for="login-password">Senha:</label>
+                <input
+                  type="password"
+                  id="login-password"
+                  name="password"
+                  placeholder="Sua senha"
+                  required
+                />
+              </div>
+              <button className="benviar" type="submit">
+                Enviar
+              </button>
+              <hr />
+              <br />
+              <p>
+                Não tem uma conta?{" "}
+                <a id="Registre-se" href="formMatricula">
+                  Registre-se
+                </a>
+              </p>
+            </form>
+          </>
+        ) : (
           <div id="loggedin">
             <p id="message" style={{ textAlign: "center" }}>
-              Você já está logado!
+              Você já está logado como {user.name} ({user.email})!
             </p>
 
             <button

@@ -1,7 +1,7 @@
 import { useAuthContext } from "../contexts/useAuthContext";
 
 export function Navbar() {
-  const { isLoggedIn, logout } = useAuthContext();
+  const { isLoggedIn, user, logout } = useAuthContext();
 
   return (
     <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -43,17 +43,23 @@ export function Navbar() {
             CONTATO
           </a>
         </li>
-        <li>
-          <a href="aula" className="nav-link px-2 link-white">
-            AULA
-          </a>
-        </li>
+        {isLoggedIn && (
+          <li>
+            <a href="aula" className="nav-link px-2 link-white">
+              AULA
+            </a>
+          </li>
+        )}
       </ul>
 
       {isLoggedIn ? (
         <div id="loggedin">
-          <p id="message"></p>
-          <button type="button" className="btn btn-secondary" onClick={logout}>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={logout}
+            title={`Sair de ${user.email}`}
+          >
             Sair
           </button>
           <a type="button" className="btn btn-secondary" href="cart">

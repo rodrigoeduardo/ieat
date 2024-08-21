@@ -35,7 +35,7 @@ export function Navbar() {
         </li>
         <li>
           <a
-            href="forms/formulario-trabalhe-conosco.html"
+            href="formTrabalheConosco"
             className="nav-link px-2 link-white"
           >
             TRABALHE CONOSCO
@@ -43,7 +43,7 @@ export function Navbar() {
         </li>
         <li>
           <a
-            href="forms/formulario-contato.html"
+            href="formularioContato"
             className="nav-link px-2 link-white"
           >
             CONTATO
@@ -60,7 +60,7 @@ export function Navbar() {
         <a type="button" className="btn btn-outline-primary me-2" href="login">
           Login
         </a>
-        <a type="button" className="btn btn-primary" href="matricula">
+        <a type="button" className="btn btn-primary" href="formMatricula">
           Registrar-se
         </a>
       </div>
@@ -71,7 +71,7 @@ export function Navbar() {
           <button type="button" className="btn btn-secondary" onClick={logout}>
             Sair
           </button>
-          <a type="button" className="btn btn-secondary" href="forms/cart.html">
+          <a type="button" className="btn btn-secondary" href="cart">
             <img
               src="imgs/carrinho.png"
               width="24"

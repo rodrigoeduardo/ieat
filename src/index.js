@@ -8,6 +8,11 @@ import Docentes from "./pages/docentes";
 import Aula from "./pages/aula";
 import { AuthContextProvider } from "./contexts/useAuthContext";
 import Login from "./pages/login";
+import Cart from "./pages/cart";
+import FormularioContato from "./pages/formularioContato";
+import FormTrabalheConosco from "./pages/formTrabalheConosco";
+import FormMatricula from "./pages/formMatricula";
+
 
 const router = createBrowserRouter([
   {
@@ -30,6 +35,22 @@ const router = createBrowserRouter([
         path: "/aula",
         element: <Aula />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+      path: "/formularioContato",
+        element: <FormularioContato />,
+      },
+      {
+        path: "/formTrabalheConosco",
+          element: <FormTrabalheConosco />,
+        },
+        {
+          path: "/formMatricula",
+            element: <FormMatricula />,
+          },
     ],
   },
 ]);

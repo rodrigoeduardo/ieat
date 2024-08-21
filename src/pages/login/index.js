@@ -74,7 +74,7 @@ export default function Login() {
           <br />
           <p>
             Não tem uma conta?{" "}
-            <a id="Registre-se" href="formulario-matricula.html">
+            <a id="Registre-se" href="formMatricula">
               Registre-se
             </a>
           </p>

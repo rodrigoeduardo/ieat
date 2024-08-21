@@ -49,7 +49,7 @@ const FormMatricula = () => {
   };
 
   return (
-    <form id="registerStudentForm" onSubmit={handleSubmit} onReset={handleReset}>
+    <form className='estilu' id="registerStudentForm" onSubmit={handleSubmit} onReset={handleReset}>
       <br />
       <div className="work">
         <h2>Matricule-se</h2>

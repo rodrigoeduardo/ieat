@@ -295,7 +295,7 @@ tr:nth-child(odd) {
     margin-top:10% ;
     margin-bottom:10% ;
   }
-  form {
+  form.estile {
     width: 60%;
   max-width: 800px;
     margin: 20px auto;

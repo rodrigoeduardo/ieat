@@ -6,6 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Inicio from "./pages/inicio";
 import Docentes from "./pages/docentes";
 import Aula from "./pages/aula";
+import Cursos from "./pages/cursos";
+import Sobre from "./pages/sobre";
+import Redes from "./pages/redes";
 import { AuthContextProvider } from "./contexts/useAuthContext";
 import Login from "./pages/login";
 import Cart from "./pages/cart";
@@ -36,21 +39,33 @@ const router = createBrowserRouter([
         element: <Aula />,
       },
       {
+        path: "/cursos",
+        element: <Cursos />,
+      },
+      {
+        path: "/redes",
+        element: <Redes />,
+      },
+      {
+        path: "/sobre",
+        element: <Sobre />,
+      }, 
+      {
         path: "/cart",
         element: <Cart />,
       },
       {
-      path: "/formularioContato",
+        path: "/formularioContato",
         element: <FormularioContato />,
       },
       {
         path: "/formTrabalheConosco",
-          element: <FormTrabalheConosco />,
-        },
-        {
-          path: "/formMatricula",
-            element: <FormMatricula />,
-          },
+        element: <FormTrabalheConosco />,
+      },
+      {
+        path: "/formMatricula",
+        element: <FormMatricula />,
+      },
     ],
   },
 ]);

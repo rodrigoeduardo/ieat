@@ -53,17 +53,17 @@ export default function Inicio() {
             </div>
 
 
-            <a className="btn btn-primary m-3" href="sobre.html">Saiba mais sobre a Instituição!</a>
+            <a className="btn btn-primary m-3" href="/sobre">Saiba mais sobre a Instituição!</a>
 
                 <div className="matricula-e-professor m-3 col-12 d-flex flex-wrap justify-content-center">
                     <div className="col-md-4 col-10 text-center">
                         <h5>Quer se tornar um(a) aluno(a)?</h5>
-                        <a className="btn btn-primary m-3" href="ieat-matricula.html">Matricule-se</a>
+                        <a className="btn btn-primary m-3" href="/formMatricula">Matricule-se</a>
                     </div>
 
                     <div className="col-md-4 col-10 text-center">
                         <h5>Quer se tornar um(a) professor(a)</h5>
-                        <a className="btn btn-primary m-3" href="ieat-contato.html">Trabalhe Conosco</a>
+                        <a className="btn btn-primary m-3" href="/formularioContato">Trabalhe Conosco</a>
                     </div>
                 </div>
 

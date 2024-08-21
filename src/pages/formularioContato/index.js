@@ -13,7 +13,7 @@ const FormularioContato = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='estile' onSubmit={handleSubmit}>
       <div className="form-group">
       <div className="work">
       <h2>Fale Conosco</h2>

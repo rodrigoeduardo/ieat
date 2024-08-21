@@ -4,7 +4,7 @@ import './index.css'; // ajuste os caminhos conforme necessário
 
 const FormTrabalheConosco = () => {
   return (
-    <form id="registerTeacherForm">
+    <form className='estilu' id="registerTeacherForm">
       <br />
       <div className="work">
         <h2>Trabalhe Conosco</h2>

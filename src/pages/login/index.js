@@ -45,7 +45,7 @@ export default function Login() {
     <>
       <div className="login-section">
         <h2>Login</h2>
-        <form id="loginForm" onSubmit={handleSubmit}>
+        <form className="estilo" id="loginForm" onSubmit={handleSubmit}>
           <div className="form-group">
             <br />
             <label for="login-email">E-mail:</label>

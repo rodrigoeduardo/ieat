@@ -6,7 +6,7 @@ export function Navbar() {
   return (
     <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <a
-        href="inicio.html"
+        href="/"
         className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
       >
         <img className="logo" src="imgs/logo_escuro_1.png" alt="Logo" />

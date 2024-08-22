@@ -35,7 +35,13 @@ export default function Login() {
           return;
         }
 
-        login(user[0], user[1].email, user[1].nome, userType);
+        login(
+          user[0],
+          user[1].email,
+          user[1].nome,
+          userType,
+          user[1].boughtCourses
+        );
         alert("Autenticado com sucesso!");
       }
     );

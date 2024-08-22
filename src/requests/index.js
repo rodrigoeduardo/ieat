@@ -28,6 +28,22 @@ export async function addTeacher(newUser) {
   return res;
 }
 
+export async function addCoursesToStudent(id, courses) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/students/${id}.json`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        boughtCourses: courses,
+      }),
+    });
+    if (!response.ok) throw new Error("Network response was not ok");
+    return response;
+  } catch (error) {
+    console.error("Failed to edit student:", error);
+  }
+}
+
 export const fetchComments = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/comments.json`);

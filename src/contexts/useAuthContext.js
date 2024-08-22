@@ -16,10 +16,13 @@ export const AuthContextProvider = ({ children }) => {
     JSON.parse(sessionStorage.getItem(key)) ?? USER_DEFAULT_VALUES
   );
 
-  function login(id, email, name, type) {
-    const user = { id, email, name, type };
+  function login(id, email, name, type, boughtCourses) {
+    const user = { id, email, name, type, boughtCourses };
     setUser(user);
-    sessionStorage.setItem(key, JSON.stringify({ id, email, name, type }));
+    sessionStorage.setItem(
+      key,
+      JSON.stringify({ id, email, name, type, boughtCourses })
+    );
   }
 
   function logout() {

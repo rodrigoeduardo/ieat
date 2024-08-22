@@ -89,8 +89,8 @@ export default function Login() {
             </form>
           </>
         ) : (
-          <div id="loggedin">
-            <p id="message" style={{ textAlign: "center" }}>
+          <div id="loggedin" style={{ height: "40vh" }}>
+            <p id="message" style={{ textAlign: "center", fontSize: "2rem" }}>
               Você já está logado como {user.name} ({user.email})!
             </p>
 

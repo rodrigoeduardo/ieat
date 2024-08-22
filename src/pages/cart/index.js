@@ -1,5 +1,4 @@
-import './index.css'
-
+import './index.css';
 import React, { useEffect, useState } from 'react';
 
 const Cart = () => {
@@ -18,10 +17,15 @@ const Cart = () => {
   };
 
   const removeFromCart = (id) => {
-    const updatedCart = cart.map((item) =>
-      item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-    ).filter(item => item.quantity > 0);
-
+    // Remove the item from the cart completely if quantity is 1 or less
+    const updatedCart = cart
+      .map(item =>
+        item.id === id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+      .filter(item => item.quantity > 0);
+  
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
     calculateTotal(updatedCart);
@@ -38,7 +42,7 @@ const Cart = () => {
       alert('Compra finalizada com sucesso!');
       clearCart();
     } else {
-      const loginUrl = './login.html?message=Loge%20para%20continuar';
+      const loginUrl = './login?message=Loge%20para%20continuar';
       window.location.href = loginUrl;
     }
   };
@@ -77,4 +81,4 @@ const Cart = () => {
     </main>
   );
 };
-export default Cart;
+export default Cart;   

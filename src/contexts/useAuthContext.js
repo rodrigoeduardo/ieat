@@ -7,6 +7,7 @@ const USER_DEFAULT_VALUES = {
   email: undefined,
   name: undefined,
   type: undefined,
+  boughtCourses: undefined,
 };
 
 const AuthContext = createContext({});

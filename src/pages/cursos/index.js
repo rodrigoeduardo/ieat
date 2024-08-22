@@ -3,7 +3,7 @@ import "./index.css";
 import { useAuthContext } from "../../contexts/useAuthContext";
 
 const Cursos = () => {
-  const { user } = useAuthContext();
+  const { user, isLoggedIn } = useAuthContext();
   const [cart, setCart] = useState(() => {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
@@ -68,9 +68,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "1"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "1")
+              }
               onClick={() => addToCart("1", "ANÁLISE DE REDES", 10.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "1")
@@ -112,9 +113,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "2"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "2")
+              }
               onClick={() => addToCart("2", "BIOINFORMÁTICA", 12.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "2")
@@ -157,9 +159,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "3"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "3")
+              }
               onClick={() => addToCart("3", "GERENCIAMENTO DE T.I", 30.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "3")
@@ -199,9 +202,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "4"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "4")
+              }
               onClick={() => addToCart("4", "INTELIGÊNCIA ARTIFICIAL", 24.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "4")
@@ -243,9 +247,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "5"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "5")
+              }
               onClick={() => addToCart("5", "INTERNET DAS COISAS", 15.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "5")
@@ -286,9 +291,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "6"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "6")
+              }
               onClick={() => addToCart("6", "TECNOLOGIA E EDUCAÇÃO", 6.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "6")
@@ -330,9 +336,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "7"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "7")
+              }
               onClick={() => addToCart("7", "T.I SUSTENTÁVEL", 7.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "7")
@@ -374,9 +381,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "8"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "8")
+              }
               onClick={() => addToCart("8", "ENGENHARIA DA COMPUTAÇÃO", 80.0)}
             >
               {user?.boughtCourses?.find((course) => course.id === "8")
@@ -417,9 +425,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "9"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "9")
+              }
               onClick={() =>
                 addToCart("9", "REALIDADE VIRTUAL E AUMENTADA", 19.0)
               }
@@ -463,9 +472,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "10"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "10")
+              }
               onClick={() =>
                 addToCart("10", "ACESSIBILIDADE TECNOLÓGICA", 10.0)
               }
@@ -509,9 +519,10 @@ const Cursos = () => {
             </form>
             <button
               className="add-to-cart btn btn-primary d-flex p-2 m-2"
-              disabled={user?.boughtCourses?.find(
-                (course) => course.id === "11"
-              )}
+              disabled={
+                !isLoggedIn ||
+                user?.boughtCourses?.find((course) => course.id === "11")
+              }
               onClick={() =>
                 addToCart("11", "DESENVOLVIMENTO DE SOFTWARE", 51.0)
               }

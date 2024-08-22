@@ -38,17 +38,9 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    if (estaLogado()) {
+    if (cart.length > 0)
       alert('Compra finalizada com sucesso!');
       clearCart();
-    } else {
-      const loginUrl = './login?message=Loge%20para%20continuar';
-      window.location.href = loginUrl;
-    }
-  };
-
-  const estaLogado = () => {
-    return !!sessionStorage.getItem('userId');
   };
 
   return (

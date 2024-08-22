@@ -63,9 +63,9 @@ function Aula() {
 
       <div className="container">
         <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <div className="nav nav-tabs" id="nav-tab" role="tablist">
             <button
-              class="nav-link active"
+              className="nav-link active"
               id="geral-tab"
               data-bs-toggle="tab"
               href="#geral"
@@ -76,7 +76,7 @@ function Aula() {
               Visão geral
             </button>
             <button
-              class="nav-link"
+              className="nav-link"
               id="observ-tab"
               data-bs-toggle="tab"
               href="#observ"
@@ -87,7 +87,7 @@ function Aula() {
               Observações
             </button>
             <button
-              class="nav-link"
+              className="nav-link"
               id="question-tab"
               data-bs-toggle="tab"
               href="#question"
@@ -100,9 +100,9 @@ function Aula() {
           </div>
         </nav>
 
-        <div class="tab-content">
+        <div className="tab-content">
           <div
-            class="tab-pane fade show active"
+            className="tab-pane fade show active"
             id="geral"
             role="tabpanel"
             aria-labelledby="geral-tab"
@@ -121,20 +121,20 @@ function Aula() {
             </p>
           </div>
           <div
-            class="tab-pane fade"
+            className="tab-pane fade"
             id="observ"
             role="tabpanel"
             aria-labelledby="observ-tab"
           >
-            <div class="d-flex align-items-start mb-2">
+            <div className="d-flex align-items-start mb-2">
               <img
                 src="imgs/prof.png"
                 alt="Professor Icon"
-                class="user-icon me-2"
+                className="user-icon me-2"
               />
               <div>
-                <h5 class="mb-1">Professor</h5>
-                <p class="mb-1">
+                <h5 className="mb-1">Professor</h5>
+                <p className="mb-1">
                   Esta é uma observação do professor sobre o conteúdo da aula.
                   Preste atenção aos detalhes mencionados.
                 </p>
@@ -142,7 +142,7 @@ function Aula() {
             </div>
           </div>
           <div
-            class="tab-pane fade"
+            className="tab-pane fade"
             id="question"
             role="tabpanel"
             aria-labelledby="question-tab"

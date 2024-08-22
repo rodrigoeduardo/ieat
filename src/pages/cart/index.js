@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../contexts/useAuthContext";
 
 const Cart = () => {
-  const { user } = useAuthContext();
+  const { user, addBoughtCourses } = useAuthContext();
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -43,10 +43,13 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (cart.length > 0) {
-      addCoursesToStudent(user.id, cart).then(() => {
-        alert("Compra finalizada com sucesso!");
-        clearCart();
-      });
+      addCoursesToStudent(user.id, [...user.boughtCourses, ...cart]).then(
+        () => {
+          addBoughtCourses(cart);
+          alert("Compra finalizada com sucesso!");
+          clearCart();
+        }
+      );
     }
   };
 

@@ -19,10 +19,7 @@ export const AuthContextProvider = ({ children }) => {
   function login(id, email, name, type, boughtCourses) {
     const user = { id, email, name, type, boughtCourses };
     setUser(user);
-    sessionStorage.setItem(
-      key,
-      JSON.stringify({ id, email, name, type, boughtCourses })
-    );
+    sessionStorage.setItem(key, JSON.stringify(user));
   }
 
   function logout() {
@@ -30,9 +27,18 @@ export const AuthContextProvider = ({ children }) => {
     sessionStorage.removeItem(key);
   }
 
+  function addBoughtCourses(boughtCourses) {
+    const newUser = {
+      ...user,
+      boughtCourses: [...user.boughtCourses, ...boughtCourses],
+    };
+    setUser(newUser);
+    sessionStorage.setItem(key, JSON.stringify(newUser));
+  }
+
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, isLoggedIn: !!user.id }}
+      value={{ user, login, logout, isLoggedIn: !!user.id, addBoughtCourses }}
     >
       {children}
     </AuthContext.Provider>
